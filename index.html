@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>ExpenseTracker</title>
+</head>
+<body>
+    
+    <h2 id="title">Expense Tracker</h2>
+
+    <div class="container">
+    
+        <p id="balanceTitle">Your Balance</p>
+        <h4 id="totalBalance">$0.00</h4>
+    
+        <center>
+        <div class="border">
+            <h4>Income</h4>
+            <p id="moneyPlus">+$0.00</p>
+    
+            <h4>Outcome</h4>
+            <p id="moneyMinus">-$0.00</p>
+        </div>
+        </center>
+    
+        <h4 id="historyTitle">History</h4>
+        <ul id="list"></ul>
+    
+        <h4 id="transaction">Add new transaction</h4>
+    
+        <form id="form">
+            <p id="name">Name:</p>
+            <center><input type="text" id="transactionName" placeholder="Enter name..."></center>
+    
+            <p id="amount">Amount:</p>
+            <center><input type="number" id="amountInput" placeholder="Enter amount..."></center>
+    
+            <center><button id="addTransaction">Add transaction</button></center>
+        </form>
+    
+    </div>    
+</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
