@@ -73,7 +73,7 @@ function removeTransaction(id) {
     init();
 }
 
-// Updating through localStorage
+// Updating in LocalStorage
 function updateLocalStorage() {
     localStorage.setItem("transactions", JSON.stringify(transactions));
 }
