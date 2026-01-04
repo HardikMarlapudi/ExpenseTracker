@@ -15,7 +15,7 @@ function transaction(e) {
     e.preventDefault();
 
     if(transactionName.value.trim() === "" || amount.value.trim() === "") {
-        alert("Please enter a valid transactionName and value");
+        alert("Please enter a valid transactionName and value.");
         return;
     } 
         const newTransaction = {
