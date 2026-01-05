@@ -20,8 +20,8 @@ function transaction(e) {
     } 
         const newTransaction = {
             id: generateId(),
-            text: transactionName.value.trim(),
-            amount: + amount.value
+            text: transactionName.value,
+            amount: +amount.value
         };
 
         transactions.push(newTransaction);
@@ -44,11 +44,15 @@ function addTransactionToDOM(transaction) {
     item.innerHTML = `
         ${transaction.text} 
         <span>${sign}${Math.abs(transaction.amount)}</span>
-        <button class="deleteBtn">X</button>
+        <button class="deleteBtn">Delete</button>
+        <button class="editBtn">Edit</button>
+    </div>
     `;
 
     const deleteBtn = item.querySelector(".deleteBtn");
+    const editBtn = item.querySelector(".editBtn");
     deleteBtn.addEventListener("click", () => removeTransaction(transaction.id));
+    editBtn.addEventListener("click", () => editTransaction(transaction.id));
 
     list.appendChild(item);
 }
@@ -57,13 +61,25 @@ function addTransactionToDOM(transaction) {
 function updateValues() {
     const amounts = transactions.map(t => t.amount);
     const total = amounts.reduce((acc, item) => acc + item, 0).toFixed(2);
-    const income = amounts.filter(item => item > 0).reduce((acc, item) => acc + item, 0).toFixed(2);
-    const expense = (amounts.filter(item => item < 0).reduce((acc, item) => acc + item, 0) * -1).toFixed(2);
+    const income = amounts.reduce((acc, item) => acc + item, 0).toFixed(2);
+    const expense = (amounts.filter(item => item < 0).reduce((acc, item) => acc + item, 0).toFixed(2));
     
     balance.innerText = `$${total}`;
     money_plus.innerText = `$${income}`;
     money_minus.innerText = `$${expense}`;
     console.log(amounts);
+}
+
+// Editing a transaction
+function editTransaction(id) {
+    const transactionToEdit = transactions.find(t => t.id == id);
+    if(transactionToEdit) {
+        transactionName.value = transactionToEdit.text;
+        amount.value = Math.abs(transactionToEdit.amount);
+        transactions = transactions.filter(t => t.id !== id);
+        updateLocalStorage();
+        init();
+    }
 }
 
 // Removing a transaction
@@ -73,7 +89,7 @@ function removeTransaction(id) {
     init();
 }
 
-// Updating through localStorage
+// Updating in LocalStorage
 function updateLocalStorage() {
     localStorage.setItem("transactions", JSON.stringify(transactions));
 }
