@@ -70,13 +70,6 @@ function updateValues() {
     console.log(amounts);
 }
 
-// Removing a transaction
-function removeTransaction(id) {
-    transactions = transactions.filter(t => t.id !== id);
-    updateLocalStorage();
-    init();
-}
-
 // Editing a transaction
 function editTransaction(id) {
     const transactionToEdit = transactions.find(t => t.id == id);
@@ -87,6 +80,13 @@ function editTransaction(id) {
         updateLocalStorage();
         init();
     }
+}
+
+// Removing a transaction
+function removeTransaction(id) {
+    transactions = transactions.filter(t => t.id !== id);
+    updateLocalStorage();
+    init();
 }
 
 // Updating in LocalStorage
