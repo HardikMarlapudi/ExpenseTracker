@@ -127,6 +127,7 @@ li {
 
 #name {
     text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 #transactionName {
@@ -138,6 +139,7 @@ li {
 
 #amount {
     text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 #amountInput {
