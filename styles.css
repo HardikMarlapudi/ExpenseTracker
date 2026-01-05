@@ -61,11 +61,32 @@
     transition: opacity 0.3s ease;
 }
 
+li {
+    font-size: 15px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    border: 0.2rem solid;
+    border-radius: 0.5rem;
+    margin: 2rem;
+    padding: 5px 15px;
+}
+
 .deleteBtn {
     background-color: #c0392b;
     border: none;
     border-radius: 0.5rem;
     font-size: 15px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width: auto;
+    cursor: pointer;
+}
+
+.editBtn {
+    background-color: skyblue;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 15px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     width: auto;
     cursor: pointer;
 }
